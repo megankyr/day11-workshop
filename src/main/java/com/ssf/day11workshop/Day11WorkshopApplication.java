@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Day11WorkshopApplication {
-
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(Day11WorkshopApplication.class);
 
@@ -19,7 +18,7 @@ public class Day11WorkshopApplication {
 			port = portFromEnvironment();
 		}
 
-		if (port == null) {
+		if (port == null){
 			port = "3000";
 		}
 
@@ -28,7 +27,7 @@ public class Day11WorkshopApplication {
 		app.run(args);
 	}
 
-	private static String portFromCommandLine(String[] args) {
+	private static String portFromCommandLine(String[] args){
 		ApplicationArguments cliOpts = new DefaultApplicationArguments(args);
 		if (cliOpts.containsOption("port")) {
 			return cliOpts.getOptionValues("port").get(0);
@@ -36,12 +35,11 @@ public class Day11WorkshopApplication {
 		return null;
 	}
 
-	private static String portFromEnvironment() {
+	private static String portFromEnvironment(){
 		String port = System.getenv("PORT");
-		if (port != null) {
+		if (port != null){
 			return port;
 		}
 		return null;
 	}
-
 }
